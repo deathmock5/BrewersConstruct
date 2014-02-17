@@ -53,7 +53,7 @@ public class Ids
         itemPotionNeedleRifleID = config.get("Item IDs", Names.itemPotionNeedleRifleName, BASEITEMIDOFFSET + baseItemIDModifer++).getInt();
         itemSilicateBlendID = config.get("Item IDs", Names.itemSilicateBlendName, BASEITEMIDOFFSET + baseItemIDModifer++).getInt();;
         //Block Ids
-        final int BASEBLOCKIDOFFSET = 255;
+        final int BASEBLOCKIDOFFSET = 436;
         int baseBlockIDModifer = 0;
         blockBrewControlerID = config.get("Block IDs", Names.blockBrewControlerName, BASEBLOCKIDOFFSET + baseBlockIDModifer++).getInt();
         blockCauldronBlockID = config.get("Block IDs", Names.blockCauldronBlockName, BASEBLOCKIDOFFSET + baseBlockIDModifer++).getInt();

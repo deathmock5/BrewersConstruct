@@ -1,6 +1,8 @@
 package bconstruct.common.core;
 
+import bconstruct.BConstruct;
 import bconstruct.common.blocks.BlazeingBlock;
+import bconstruct.common.blocks.BrewingControler;
 import bconstruct.common.blocks.GlazedBricks;
 import bconstruct.common.util.BRepo;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -17,11 +19,13 @@ public class Blocks
     public static void registerBlocks()
     {
         //set block repos
-        BRepo.blazeingBlock = new BlazeingBlock();
-        BRepo.glazedBricks = new GlazedBricks();
+        BRepo.blazeingBlock = new BlazeingBlock().setCreativeTab(BConstruct.ModTab);
+        BRepo.glazedBricks = new GlazedBricks().setCreativeTab(BConstruct.ModTab);
+        BRepo.brewingControler = new BrewingControler().setCreativeTab(BConstruct.ModTab);
         //register blocks
         registerBlock(BRepo.blazeingBlock);
         registerBlock(BRepo.glazedBricks);
+        registerBlock(BRepo.brewingControler);
     }
 
     private static void setFireInfo()

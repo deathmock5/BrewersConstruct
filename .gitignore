@@ -213,3 +213,16 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+
+#MCP
+cpw/
+ibxm/
+net/
+paulscode/
+fml_at.cfg
+fml_marker.cfg
+fmlversion.properties
+forge_at.cfg
+forge_at.cfg~
+forge_logo.png
+start.java

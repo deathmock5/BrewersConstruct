@@ -1,7 +1,6 @@
 package bconstruct.common.blocks.templates;
 
 import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import bconstruct.BConstruct;
 import net.minecraft.block.Block;
@@ -15,7 +14,6 @@ public class BConstructBlock extends Block
     {
         super(id, material);
         this.setHardness(hardness);
-        this.setCreativeTab(BConstruct.ModTab);
         this.setUnlocalizedName(tex.replace(" ", "").toLowerCase());
         LanguageRegistry.addName(this, tex);
     }

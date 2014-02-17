@@ -1,5 +1,5 @@
 package bconstruct.common.handlers;
 
-public class BEventHandler {
-
+public class BEventHandler
+{
 }

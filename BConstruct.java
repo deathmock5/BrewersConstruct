@@ -8,7 +8,6 @@ import bconstruct.common.core.Blocks;
 import bconstruct.common.handlers.BEventHandler;
 import bconstruct.common.util.Log;
 import bconstruct.common.network.packet.PacketPipeline;
-import bconstruct.BProxyCommon;
 import bconstruct.common.core.Crafting;
 import bconstruct.common.helpers.BrewersCreativeTab;
 import bconstruct.common.plugins.PluginController;
@@ -33,13 +32,15 @@ import cpw.mods.fml.relauncher.Side;
  * @author Deathmock5
  */
 
-@Mod(modid = ModInfo.MODID, name = ModInfo.NAME, version = ModInfo.VERSION, dependencies = ModInfo.DEPENDENCYS )
+@Mod(modid = ModInfo.MODID, name = ModInfo.NAME, version = ModInfo.VERSION, dependencies = ModInfo.DEPENDENCYS)
 public class BConstruct
 {
     /** The value of one ingot in millibuckets */
     public static final int bottleLiquidValue = 100;
     public static final int liquidUpdateAmount = 6;
-
+    public static Blocks blocks;
+    public static Crafting crafting;
+    public static BEventHandler events;
     // Shared mod logger
     public static Log logger;
 
@@ -60,37 +61,31 @@ public class BConstruct
 
     public BConstruct()
     {
-    	
     }
 
     @EventHandler
-    public void preInit (FMLPreInitializationEvent event)
+    public void preInit(FMLPreInitializationEvent event)
     {
-
         Ids.initProps(event.getSuggestedConfigurationFile());
-       
         blocks = new Blocks();
         crafting = new Crafting();
         events = new BEventHandler();
-        
         MinecraftForge.EVENT_BUS.register(events);
+        blocks.registerBlocks();
         //MinecraftForge.EVENT_BUS.register(new TEventHandlerAchievement());
         //recipes.oreRegistry();
-
         proxy.registerRenderer();
         proxy.addNames();
         proxy.readManuals();
         proxy.registerKeys();
         proxy.registerTickHandler();
-
         //GameRegistry.registerCraftingHandler(new TCraftingHandler());
         // NetworkRegistry.INSTANCE.registerGuiHandler(instance, proxy);
-
         PluginController.getController().preInit();
     }
 
     @EventHandler
-    public void init (FMLInitializationEvent event)
+    public void init(FMLInitializationEvent event)
     {
         //packetPipeline.initalise();
         if (event.getSide() == Side.CLIENT)
@@ -100,7 +95,6 @@ public class BConstruct
 
         //DimensionBlacklist.getBadBimensions();
         //GameRegistry.registerWorldGenerator(new SlimeIslandGen(TRepo.slimePool, 2), 2);
-
         PluginController.getController().init();
 
         if (Ids.achievementsEnabled)
@@ -110,7 +104,7 @@ public class BConstruct
     }
 
     @EventHandler
-    public void postInit (FMLPostInitializationEvent evt)
+    public void postInit(FMLPostInitializationEvent evt)
     {
         proxy.postInit();
         //packetPipeline.postInitialise();
@@ -118,10 +112,6 @@ public class BConstruct
         //recipes.addOreDictionarySmelteryRecipes();
         //content.createEntities();
         crafting.init();
-
         PluginController.getController().postInit();
     }
-    public static Blocks blocks;
-    public static Crafting crafting;
-    public static BEventHandler events;
 }

@@ -1,5 +1,5 @@
 package bconstruct.common.items;
 
-public class GlazedBrickItem {
-
+public class GlazedBrickItem
+{
 }

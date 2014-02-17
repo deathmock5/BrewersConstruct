@@ -1,5 +1,5 @@
 package bconstruct.common.core;
 
-public class Dimensions {
-
+public class Dimensions
+{
 }

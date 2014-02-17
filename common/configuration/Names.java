@@ -1,7 +1,8 @@
 package bconstruct.common.configuration;
 
-public class Names {
-	 //Item Names
+public class Names
+{
+    //Item Names
     public static String itemGlazedBrickName = "Glazed Brick";
     public static String itemRawBrickingName = "Raw Bricking";
     public static String itemPotionBottleName = "Potion Bottle";
@@ -25,5 +26,5 @@ public class Names {
     public static String blockAluminumOreName = "Aluminum Ore";
     public static String blockAluminumBlockName = "Aluminum Block";
     //Fluid Names
-	
+
 }

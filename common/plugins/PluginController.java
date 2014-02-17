@@ -7,14 +7,11 @@ import java.util.List;
 import net.minecraftforge.common.Configuration;
 import bconstruct.BConstruct;
 import bconstruct.common.intigration.Thaumcraft;
-import bconstruct.common.plugins.ICompatPlugin;
-import bconstruct.common.plugins.PluginController;
 //import deathmock5.brewersconstruct.plugins.PluginController.Phase;
 import cpw.mods.fml.common.Loader;
 
 public class PluginController
 {
-
     private enum Phase
     {
         PRELAUNCH, PREINIT, INIT, POSTINIT, DONE
@@ -32,10 +29,13 @@ public class PluginController
         conf = new Configuration(new File(path));
     }
 
-    public static PluginController getController ()
+    public static PluginController getController()
     {
         if (instance == null)
+        {
             instance = new PluginController();
+        }
+
         return instance;
     }
 
@@ -47,73 +47,89 @@ public class PluginController
      *
      * @param plugin Plugin to register
      */
-    public void registerPlugin (ICompatPlugin plugin)
+    public void registerPlugin(ICompatPlugin plugin)
     {
         conf.load();
         boolean shouldLoad = conf.get("Plugins", plugin.getModId(), true).getBoolean(true);
         conf.save();
 
         if (shouldLoad)
+        {
             loadPlugin(plugin);
+        }
     }
 
     // This does the actual plugin loading if mod is present; needed to allow force-enabling.
-    private void loadPlugin (ICompatPlugin plugin)
+    private void loadPlugin(ICompatPlugin plugin)
     {
         if (!Loader.isModLoaded(plugin.getModId()))
+        {
             return;
+        }
 
         BConstruct.logger.info("[PluginController] Registering compat plugin for " + plugin.getModId());
         plugins.add(plugin);
 
         switch (currPhase)
-        // Play catch-up if plugin is registered late
+            // Play catch-up if plugin is registered late
         {
-        case DONE:
-        case POSTINIT:
-            plugin.preInit();
-            plugin.init();
-            plugin.postInit();
-            break;
-        case INIT:
-            plugin.preInit();
-            plugin.init();
-            break;
-        case PREINIT:
-            plugin.preInit();
-            break;
-        default:
-            break;
+            case DONE:
+            case POSTINIT:
+                plugin.preInit();
+                plugin.init();
+                plugin.postInit();
+                break;
+
+            case INIT:
+                plugin.preInit();
+                plugin.init();
+                break;
+
+            case PREINIT:
+                plugin.preInit();
+                break;
+
+            default:
+                break;
         }
     }
 
-    public void preInit ()
+    public void preInit()
     {
         currPhase = Phase.PREINIT;
+
         for (ICompatPlugin pl : plugins)
+        {
             pl.preInit();
+        }
     }
 
-    public void init ()
+    public void init()
     {
         currPhase = Phase.INIT;
+
         for (ICompatPlugin pl : plugins)
+        {
             pl.init();
+        }
     }
 
-    public void postInit ()
+    public void postInit()
     {
         currPhase = Phase.POSTINIT;
+
         for (ICompatPlugin pl : plugins)
+        {
             pl.postInit();
+        }
+
         currPhase = Phase.DONE;
     }
 
-    public void registerBuiltins ()
+    public void registerBuiltins()
     {
         // Mystcraft is pushed in through the backdoor so it can't be disabled.
         //loadPlugin(new Mystcraft());
-
         //registerPlugin(new AppEng());
         //registerPlugin(new BuildcraftTransport());
         //registerPlugin(new ForgeMultiPart());
@@ -123,5 +139,4 @@ public class PluginController
         registerPlugin(new Thaumcraft());
         // registerPlugin(new Waila());
     }
-
 }

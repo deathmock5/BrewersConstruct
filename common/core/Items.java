@@ -1,5 +1,5 @@
 package bconstruct.common.core;
 
-public class Items {
-
+public class Items
+{
 }

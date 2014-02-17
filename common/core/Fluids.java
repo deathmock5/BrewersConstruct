@@ -1,5 +1,5 @@
 package bconstruct.common.core;
 
-public class Fluids {
-
+public class Fluids
+{
 }

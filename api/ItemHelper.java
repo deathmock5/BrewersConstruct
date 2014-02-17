@@ -1,5 +1,5 @@
 package bconstruct.api;
 
-public class ItemHelper {
-
+public class ItemHelper
+{
 }

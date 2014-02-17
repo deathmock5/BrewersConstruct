@@ -18,34 +18,36 @@ import bconstruct.common.configuration.Ids;
 import bconstruct.common.configuration.Names;
 import bconstruct.common.util.ModInfo;
 
-public class GlazedBricks extends BConstructBlock {
-	@SideOnly(Side.CLIENT)
-	Icon myicon;
-	public GlazedBricks() {
-		super(Ids.blockGlazedBricksID + 2,Material.rock, 0.4f, Names.blockGlazedBricksName);
-	}
-	
-	@Override
-	@SideOnly(Side.CLIENT)
+public class GlazedBricks extends BConstructBlock
+{
+    @SideOnly(Side.CLIENT)
+    Icon myicon;
+    public GlazedBricks()
+    {
+        super(Ids.blockGlazedBricksID, Material.rock, 0.4f, Names.blockGlazedBricksName);
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister par1IconRegister)
     {
-          myicon = par1IconRegister.registerIcon(ModInfo.MODID + ":" + (this.getUnlocalizedName().substring(5)));
+        myicon = par1IconRegister.registerIcon(ModInfo.MODID + ":" + (this.getUnlocalizedName().substring(5)));
     }
-	
-	@Override
-	@SideOnly(Side.CLIENT)
-	public Icon getIcon(int side, int metadata)
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public Icon getIcon(int side, int metadata)
     {
-		return myicon;
+        return myicon;
     }
-	
-	@Override
-	@SideOnly(Side.CLIENT)
+
+    @Override
+    @SideOnly(Side.CLIENT)
     public void getSubBlocks(int par1, CreativeTabs par2CreativeTabs, List par3List)
     {
-          for(int i = 0; i < 2; i++)
-          {
-                 par3List.add(new ItemStack(par1, 1, i));
-          }
+        for (int i = 0; i < 2; i++)
+        {
+            par3List.add(new ItemStack(par1, 1, i));
+        }
     }
 }

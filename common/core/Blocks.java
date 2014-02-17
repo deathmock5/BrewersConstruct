@@ -8,37 +8,35 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemBlock;
 
-public class Blocks {
-	public Blocks()
-	{
-		registerBlocks();
-		setFireInfo();
-	}
-	
-	private static void registerBlocks()
-	{
-		//set block repos
-		//BRepo.blazeingBlock = new BlazeingBlock();
-		BRepo.glazedBricks = new GlazedBricks();
-		//register blocks
-		//registerBlock(BRepo.blazeingBlock);
-		registerBlock(BRepo.glazedBricks);
-	}
-	
-	private static void setFireInfo()
-	{
-		
-	}
-	
-	public static void registerBlock(Block block)
-	{
-		//TODO: 								getUnlocalizedName()
-	    GameRegistry.registerBlock(block, block.getUnlocalizedName().replace("tile.", ""));
-	}
-
-    public static void registerBlock(Block block, Class<? extends ItemBlock> itemBlockClass)
+public class Blocks
+{
+    public Blocks()
     {
-		//TODO: 												getUnlocalizedName()
+    }
+
+    public static void registerBlocks()
+    {
+        //set block repos
+        BRepo.blazeingBlock = new BlazeingBlock();
+        BRepo.glazedBricks = new GlazedBricks();
+        //register blocks
+        registerBlock(BRepo.blazeingBlock);
+        registerBlock(BRepo.glazedBricks);
+    }
+
+    private static void setFireInfo()
+    {
+    }
+
+    public static void registerBlock(Block block)
+    {
+        //TODO: 								getUnlocalizedName()
+        GameRegistry.registerBlock(block, block.getUnlocalizedName().replace("tile.", ""));
+    }
+
+    public static void registerBlock(Block block, Class <? extends ItemBlock > itemBlockClass)
+    {
+        //TODO: 												getUnlocalizedName()
         GameRegistry.registerBlock(block, itemBlockClass, block.getUnlocalizedName().replace("tile.", ""));
     }
 }

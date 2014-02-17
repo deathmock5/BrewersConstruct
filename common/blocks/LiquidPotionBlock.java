@@ -1,6 +1,5 @@
 package bconstruct.common.blocks;
 
-
 import java.util.List;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -21,11 +20,9 @@ import bconstruct.common.blocks.templates.BConstructBlock;
 import bconstruct.common.util.ModInfo;
 import bconstruct.common.configuration.Ids;
 
-
-public class LiquidPotionBlock {
-	LiquidPotionBlock()
-	{
-		
-	}
-
+public class LiquidPotionBlock
+{
+    LiquidPotionBlock()
+    {
+    }
 }

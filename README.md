@@ -5,8 +5,8 @@
 ##Summary
 A brewing mod for Minecraft based loosely on tinkers construct.
 ##Requirements
-*Forge
-*Mantle
+* Forge
+* Mantle
 
 ##Issue reporting
 Please include the following:

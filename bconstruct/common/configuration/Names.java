@@ -14,9 +14,9 @@ public class Names
     public static String itemSilicateBlendName = "Pretreated Alumina-silicate Blend";
     //Block Names
     public static String blockBrewControlerName = "Brewing Controller";
-    public static String blockCauldronBlockName = "Brewing Caldron Block";
-    public static String blockCauldronDrainName = "Brewing Caldron Drain";
-    public static String blockCauldronSpigotName = "Brewing Caldron Spigot";
+    public static String blockCauldronBlockName = "Heavy Cauldron Block";
+    public static String blockCauldronDrainName = "Heavy Cauldron Drain";
+    public static String blockCauldronSpigotName = "Heavy Cauldron Spigot";
     public static String blockBlazeingName = "Blazeing Block";
     public static String blockPotionGlassName = "Potion Glass";
     public static String blockBottlerName = "Potion Bottler";

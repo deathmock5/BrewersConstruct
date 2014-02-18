@@ -226,3 +226,7 @@ forge_at.cfg
 forge_at.cfg~
 forge_logo.png
 start.java
+
+#MyModdingStuff
+mantle/
+tconstruct/

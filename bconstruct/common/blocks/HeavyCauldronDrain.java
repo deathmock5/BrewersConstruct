@@ -19,7 +19,38 @@ import net.minecraft.world.World;
 import bconstruct.common.blocks.templates.BConstructBlock;
 import bconstruct.common.util.ModInfo;
 import bconstruct.common.configuration.Ids;
+import bconstruct.common.configuration.Names;
 
-public class HeavyCauldronDrain
+public class HeavyCauldronDrain extends BConstructBlock
 {
+	@SideOnly(Side.CLIENT)
+    Icon myicon;
+    public HeavyCauldronDrain()
+    {
+        super(Ids.blockCauldronDrainID, Material.rock, 0.4f, Names.blockCauldronDrainName);
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void registerIcons(IconRegister par1IconRegister)
+    {
+        myicon = par1IconRegister.registerIcon(ModInfo.MODID + ":" + (this.getUnlocalizedName().substring(5)));
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public Icon getIcon(int side, int metadata)
+    {
+        return myicon;
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void getSubBlocks(int par1, CreativeTabs par2CreativeTabs, List par3List)
+    {
+        for (int i = 0; i < 2; i++)
+        {
+            par3List.add(new ItemStack(par1, 1, i));
+        }
+    }
 }

@@ -5,6 +5,7 @@ import java.util.logging.Level;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.MinecraftForge;
 import bconstruct.common.core.Blocks;
+import bconstruct.common.core.Items;
 import bconstruct.common.handlers.BEventHandler;
 import bconstruct.common.util.Log;
 import bconstruct.common.network.packet.PacketPipeline;
@@ -38,8 +39,6 @@ public class BConstruct
     /** The value of one ingot in millibuckets */
     public static final int bottleLiquidValue = 100;
     public static final int liquidUpdateAmount = 6;
-    public static Blocks blocks;
-    public static Crafting crafting;
     public static BEventHandler events;
     // Shared mod logger
     public static Log logger;
@@ -67,11 +66,10 @@ public class BConstruct
     public void preInit(FMLPreInitializationEvent event)
     {
         Ids.initProps(event.getSuggestedConfigurationFile());
-        blocks = new Blocks();
-        crafting = new Crafting();
+        Blocks.init();
+        Items.init();
         events = new BEventHandler();
         MinecraftForge.EVENT_BUS.register(events);
-        blocks.registerBlocks();
         //MinecraftForge.EVENT_BUS.register(new TEventHandlerAchievement());
         //recipes.oreRegistry();
         proxy.registerRenderer();
@@ -111,7 +109,7 @@ public class BConstruct
         //recipes.modIntegration();
         //recipes.addOreDictionarySmelteryRecipes();
         //content.createEntities();
-        crafting.init();
+        Crafting.init();
         PluginController.getController().postInit();
     }
 }

@@ -22,7 +22,7 @@ public class Ids
     //Block Ids
     public static int blockBrewControlerID;
     public static int blockCauldronBlockID;
-    public static int blockCauldronDraingID;
+    public static int blockCauldronDrainID;
     public static int blockCauldronSpigotID;
     public static int blockBlazeingID;
     public static int blockBottlerID;
@@ -51,13 +51,13 @@ public class Ids
         itemAetherwartID = config.get("Item IDs", Names.itemAetherwartName, BASEITEMIDOFFSET + baseItemIDModifer++).getInt();
         itemPotionNeedlerID = config.get("Item IDs", Names.itemPotionNeedlerName, BASEITEMIDOFFSET + baseItemIDModifer++).getInt();
         itemPotionNeedleRifleID = config.get("Item IDs", Names.itemPotionNeedleRifleName, BASEITEMIDOFFSET + baseItemIDModifer++).getInt();
-        itemSilicateBlendID = config.get("Item IDs", Names.itemSilicateBlendName, BASEITEMIDOFFSET + baseItemIDModifer++).getInt();;
+        itemSilicateBlendID = config.get("Item IDs", Names.itemSilicateBlendName, BASEITEMIDOFFSET + baseItemIDModifer++).getInt();
         //Block Ids
         final int BASEBLOCKIDOFFSET = 436;
         int baseBlockIDModifer = 0;
         blockBrewControlerID = config.get("Block IDs", Names.blockBrewControlerName, BASEBLOCKIDOFFSET + baseBlockIDModifer++).getInt();
         blockCauldronBlockID = config.get("Block IDs", Names.blockCauldronBlockName, BASEBLOCKIDOFFSET + baseBlockIDModifer++).getInt();
-        blockCauldronDraingID = config.get("Block IDs", Names.blockCauldronDrainName, BASEBLOCKIDOFFSET + baseBlockIDModifer++).getInt();
+        blockCauldronDrainID = config.get("Block IDs", Names.blockCauldronDrainName, BASEBLOCKIDOFFSET + baseBlockIDModifer++).getInt();
         blockCauldronSpigotID = config.get("Block IDs", Names.blockCauldronSpigotName, BASEBLOCKIDOFFSET + baseBlockIDModifer++).getInt();
         blockBlazeingID = config.get("Block IDs", Names.blockBlazeingName, BASEBLOCKIDOFFSET + baseBlockIDModifer++).getInt();
         blockBottlerID = config.get("Block IDs", Names.blockBottlerName, BASEBLOCKIDOFFSET + baseBlockIDModifer++).getInt();

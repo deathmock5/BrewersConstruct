@@ -31,7 +31,7 @@ public class BrewingControler extends BConstructBlock
 	 
      public BrewingControler()
      {
-         super(Ids.blockGlazedBricksID, Material.rock, 0.4f, Names.blockGlazedBricksName);
+         super(Ids.blockBrewControlerID, Material.rock, 0.4f, Names.blockBrewControlerName);
      }
     
      @Override

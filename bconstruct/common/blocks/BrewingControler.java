@@ -15,13 +15,15 @@ import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.Icon;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import bconstruct.common.blocks.templates.BConstructBlock;
+import bconstruct.common.blocks.templates.HeavyCauldronBace;
 import bconstruct.common.util.ModInfo;
 import bconstruct.common.configuration.Ids;
 import bconstruct.common.configuration.Names;
 
-public class BrewingControler extends BConstructBlock
+public class BrewingControler extends HeavyCauldronBace
 {
 	 @SideOnly(Side.CLIENT)
 	 Icon myicon;
@@ -42,6 +44,15 @@ public class BrewingControler extends BConstructBlock
          mysides = par1IconRegister.registerIcon(ModInfo.MODID + ":" + (this.getUnlocalizedName().substring(5) + "_side"));
      }
 
+     @Override
+     public Icon getBlockTexture (IBlockAccess world, int x, int y, int z, int side)
+     {
+    	 int meta = world.getBlockMetadata(x, y, z);
+    	 if(meta == side)
+    		 return myicon;
+     	return mysides;
+     }
+     
      @Override
      @SideOnly(Side.CLIENT)
      public Icon getIcon(int side, int metadata)

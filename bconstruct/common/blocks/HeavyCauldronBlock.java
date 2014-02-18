@@ -34,23 +34,16 @@ public class HeavyCauldronBlock extends BConstructBlock
 	    @SideOnly(Side.CLIENT)
 	    public void registerIcons(IconRegister par1IconRegister)
 	    {
-	        myicon = par1IconRegister.registerIcon(ModInfo.MODID + ":" + (this.getUnlocalizedName().substring(5)));
+	        myicon = par1IconRegister.registerIcon(ModInfo.MODID + ":" + (this.getUnlocalizedName().substring(5).substring(0,this.getUnlocalizedName().length()-10)) + "_block");
 	    }
 
 	    @Override
 	    @SideOnly(Side.CLIENT)
 	    public Icon getIcon(int side, int metadata)
 	    {
-	        return myicon;
+	    	return myicon;
 	    }
+	    
+	    
 
-	    @Override
-	    @SideOnly(Side.CLIENT)
-	    public void getSubBlocks(int par1, CreativeTabs par2CreativeTabs, List par3List)
-	    {
-	        for (int i = 0; i < 2; i++)
-	        {
-	            par3List.add(new ItemStack(par1, 1, i));
-	        }
-	    }
 }

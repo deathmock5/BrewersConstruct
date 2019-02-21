@@ -4,6 +4,8 @@
 
 ##Summary
 A brewing mod for Minecraft based loosely on tinkers construct.
+Allows the create of a massive cauldron that you could throw items into to make potions.
+Potion pipes, potion turrets, jugs, flasks, ext.
 ##Requirements
 * Forge
 * Mantle
